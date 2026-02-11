@@ -58,22 +58,3 @@ src/
 | Dev紹介文を変更 | `src/components/DevTab.jsx` |
 
 ---
-
-## ⚠️ 拡張子の復元について
-
-メール添付のセキュリティ対策のため `.js` → `.js.txt`、`.jsx` → `.jsx.txt` にリネームしています。
-展開後、以下のコマンドで元に戻してください：
-
-**Mac / Linux：**
-```bash
-find . -name "*.js.txt" -exec bash -c 'mv "$0" "${0%.txt}"' {} \;
-find . -name "*.jsx.txt" -exec bash -c 'mv "$0" "${0%.txt}"' {} \;
-```
-
-**Windows (PowerShell)：**
-```powershell
-Get-ChildItem -Recurse -Filter "*.js.txt" | Rename-Item -NewName { $_.Name -replace '\.txt$', '' }
-Get-ChildItem -Recurse -Filter "*.jsx.txt" | Rename-Item -NewName { $_.Name -replace '\.txt$', '' }
-```
-
-復元後 `npm install && npm run dev` で起動できます。
